@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>1</version>
+    <version>1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>super POM</name>
     <distributionManagement>
@@ -19,9 +19,16 @@
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
+    <scm>
+        <developerConnection>${scm.developerConnection}</developerConnection>
+    </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <!-- -->
+        <scm.provider>git</scm.provider>
+        <scm.url>git@github.com:turbospaces/turbospaces-parent.git</scm.url>
+        <scm.developerConnection>scm:${scm.provider}:${scm.url}</scm.developerConnection>
         <!-- -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -126,9 +133,9 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!--  -->
+                <!-- -->
                 <!-- attach common generated folders -->
-                <!--  -->
+                <!-- -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
@@ -156,9 +163,9 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!--  -->
+                <!-- -->
                 <!-- create version -->
-                <!--  -->
+                <!-- -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>buildnumber-maven-plugin</artifactId>
@@ -258,6 +265,21 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${version.release.plugin}</version>
+                    <configuration>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <preparationGoals>clean verify</preparationGoals>
+                        <goals>deploy</goals>
+                        <localCheckout>false</localCheckout>
+                        <pushChanges>true</pushChanges>
+                        <checkModificationExcludes>
+                            <checkModificationExclude>**/pom.xml</checkModificationExclude>
+                        </checkModificationExcludes>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
