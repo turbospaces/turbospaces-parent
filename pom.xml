@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>2-SNAPSHOT</version>
+    <version>1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>super POM</name>
+    <description>super-POM for all open-source project developed under turbospaces account</description>
+    <url>https://github.com/turbospaces/turbospaces-parent</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
     <distributionManagement>
         <repository>
             <id>sonatype-nexus-staging</id>
@@ -18,16 +28,29 @@
         </snapshotRepository>
     </distributionManagement>
     <scm>
-        <developerConnection>${scm.developerConnection}</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <connection>${scm.connection}</connection>
+        <developerConnection>${scm.connection}</developerConnection>
+        <url>${scm.url}/tree/master</url>
+    </scm>
+    <developers>
+        <developer>
+            <id>andrey</id>
+            <name>Andrey Borisov</name>
+            <email>andrey@turbospaces.com</email>
+            <organization>turbospaces</organization>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>+2</timezone>
+        </developer>
+    </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <!-- -->
         <scm.provider>git</scm.provider>
-        <scm.url>https://github.com/turbospaces/turbospaces-parent.git</scm.url>
-        <scm.developerConnection>scm:${scm.provider}:${scm.url}</scm.developerConnection>
+        <scm.url>https://github.com/turbospaces/turbospaces-parent</scm.url>
+        <scm.connection>scm:${scm.provider}:${scm.url}.${scm.provider}</scm.connection>
         <!-- -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
