@@ -15,11 +15,11 @@ Super parent pom with a meaningful set of pre-configured plugins:
  # How to use
  Artifact is available in central nexus repository, so just set parent as following:
  ```
- <dependency>
+ <parent>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
     <version>1</version>
-</dependency>
+</parent>
  ```
  
  and then activate various plugins, most likely you would like to do the following:
