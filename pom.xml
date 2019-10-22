@@ -58,17 +58,17 @@
         <!-- -->
         <!-- plugin versions -->
         <!-- -->
-        <version.compiler.plugin>3.8.0</version.compiler.plugin>
+        <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.eclipse-compiler.plugin>2.8.5</version.eclipse-compiler.plugin>
-        <version.jar.plugin>3.1.0</version.jar.plugin>
+        <version.jar.plugin>3.2.1</version.jar.plugin>
         <version.clean.plugin>3.1.0</version.clean.plugin>
-        <version.site.plugin>3.7.1</version.site.plugin>
+        <version.site.plugin>3.8.2</version.site.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.deploy.plugin>2.8.2</version.deploy.plugin>
         <version.buildhelper.plugin>3.0.0</version.buildhelper.plugin>
         <version.buildnumber.plugin>1.4</version.buildnumber.plugin>
         <version.release.plugin>2.5.3</version.release.plugin>
-        <version.source.plugin>3.0.1</version.source.plugin>
+        <version.source.plugin>3.1.0</version.source.plugin>
         <version.dependency.plugin>3.1.1</version.dependency.plugin>
         <version.versions.plugin>2.7</version.versions.plugin>
         <version.javadoc.plugin>3.0.1</version.javadoc.plugin>
@@ -148,6 +148,7 @@
                         <source>${maven.compiler.source}</source>
                         <target>${maven.compiler.target}</target>
                         <useIncrementalCompilation>false</useIncrementalCompilation>
+                        <generatedSourcesDirectory>${project.build.directory}/generated-sources/java</generatedSourcesDirectory>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -314,6 +315,8 @@
                         <goals>deploy</goals>
                         <localCheckout>false</localCheckout>
                         <pushChanges>true</pushChanges>
+                        <tagNameFormat>v@{project.version}</tagNameFormat>
+                        <arguments>-Dmaven.javadoc.skip=true -Dmaven.test.skipTests=true -Dmaven.test.skip=true</arguments>
                         <checkModificationExcludes>
                             <checkModificationExclude>**/pom.xml</checkModificationExclude>
                         </checkModificationExcludes>
