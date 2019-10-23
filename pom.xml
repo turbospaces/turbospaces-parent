@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>2-SNAPSHOT</version>
+    <version>2</version>
     <packaging>pom</packaging>
     <name>super POM</name>
     <description>super-POM for all open-source project developed under turbospaces account</description>
@@ -56,11 +56,11 @@
         <!-- -->
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <!-- -->
-        <!-- plugin versions -->
+        <!-- versions -->
         <!-- -->
         <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.eclipse-compiler.plugin>2.8.5</version.eclipse-compiler.plugin>
-        <version.jar.plugin>3.2.1</version.jar.plugin>
+        <version.jar.plugin>3.1.2</version.jar.plugin>
         <version.clean.plugin>3.1.0</version.clean.plugin>
         <version.site.plugin>3.8.2</version.site.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
