@@ -50,8 +50,8 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <!-- -->
         <scm.provider>git</scm.provider>
-        <scm.url>https://github.com/turbospaces/turbospaces-parent</scm.url>
-        <scm.connection>scm:${scm.provider}:${scm.url}.${scm.provider}</scm.connection>
+        <scm.url>https://andrey_borisov@bitbucket.org/andrey_borisov/turbospaces-boot.git</scm.url>
+        <scm.connection>scm:${scm.provider}:${scm.url}</scm.connection>
         <!-- -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
