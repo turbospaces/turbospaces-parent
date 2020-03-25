@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>4-SNAPSHOT</version>
+    <version>4</version>
     <packaging>pom</packaging>
     <name>super POM</name>
     <description>super-POM for all open-source project developed under turbospaces account</description>
@@ -29,7 +29,7 @@
         <connection>${scm.connection}</connection>
         <developerConnection>${scm.connection}</developerConnection>
         <url>${scm.url}/tree/master</url>
-        <tag>v3</tag>
+        <tag>v4</tag>
     </scm>
     <developers>
         <developer>
@@ -48,7 +48,7 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <!-- -->
         <scm.provider>git</scm.provider>
-        <scm.url>https://andrey_borisov@bitbucket.org/andrey_borisov/turbospaces-boot.git</scm.url>
+        <scm.url>git@github.com:turbospaces/turbospaces-parent.git</scm.url>
         <scm.connection>scm:${scm.provider}:${scm.url}</scm.connection>
         <!-- -->
         <maven.compiler.target>1.8</maven.compiler.target>
