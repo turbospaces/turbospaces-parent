@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
@@ -61,21 +62,21 @@
         <version.compiler.plugin>3.8.1</version.compiler.plugin>
         <version.jar.plugin>3.2.0</version.jar.plugin>
         <version.clean.plugin>3.1.0</version.clean.plugin>
-        <version.site.plugin>3.9.0</version.site.plugin>
+        <version.site.plugin>3.9.1</version.site.plugin>
         <version.install.plugin>3.0.0-M1</version.install.plugin>
         <version.deploy.plugin>3.0.0-M1</version.deploy.plugin>
-        <version.buildhelper.plugin>3.1.0</version.buildhelper.plugin>
-        <version.buildnumber.plugin>1.4</version.buildnumber.plugin>
         <version.release.plugin>3.0.0-M1</version.release.plugin>
+        <version.buildhelper.plugin>3.2.0</version.buildhelper.plugin>
+        <version.buildnumber.plugin>1.4</version.buildnumber.plugin>
         <version.source.plugin>3.2.1</version.source.plugin>
         <version.dependency.plugin>3.1.2</version.dependency.plugin>
-        <version.versions.plugin>2.7</version.versions.plugin>
-        <version.javadoc.plugin>3.2.0</version.javadoc.plugin>
+        <version.versions.plugin>2.8.1</version.versions.plugin>
+        <version.javadoc.plugin>3.3.1</version.javadoc.plugin>
         <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
-        <version.resources.plugin>3.1.0</version.resources.plugin>
-        <version.gpg.plugin>1.6</version.gpg.plugin>
-        <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
-        <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
+        <version.resources.plugin>3.2.0</version.resources.plugin>
+        <version.gpg.plugin>3.0.1</version.gpg.plugin>
+        <version.enforcer.plugin>3.0.0</version.enforcer.plugin>
+        <version.git-commit-id.plugin>4.9.10</version.git-commit-id.plugin>
     </properties>
     <profiles>
         <profile>
@@ -227,7 +228,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>${git-commit-id-plugin.version}</version>
+                    <version>${version.git-commit-id.plugin}</version>
                     <executions>
                         <execution>
                             <id>get-git-info</id>
