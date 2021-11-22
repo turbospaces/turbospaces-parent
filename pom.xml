@@ -71,7 +71,7 @@
         <version.dependency.plugin>3.1.2</version.dependency.plugin>
         <version.versions.plugin>2.7</version.versions.plugin>
         <version.javadoc.plugin>3.2.0</version.javadoc.plugin>
-        <version.surefire.plugin>3.0.0-M4</version.surefire.plugin>
+        <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
         <version.resources.plugin>3.1.0</version.resources.plugin>
         <version.gpg.plugin>1.6</version.gpg.plugin>
         <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
