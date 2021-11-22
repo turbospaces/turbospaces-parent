@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>5</version>
+    <version>6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>super POM</name>
     <description>super-POM for all open-source project developed under turbospaces account</description>
@@ -29,7 +29,7 @@
         <connection>${scm.connection}</connection>
         <developerConnection>${scm.connection}</developerConnection>
         <url>${scm.url}/tree/master</url>
-        <tag>v5</tag>
+        <tag>v3</tag>
     </scm>
     <developers>
         <developer>
