@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
@@ -29,7 +29,7 @@
         <connection>${scm.connection}</connection>
         <developerConnection>${scm.connection}</developerConnection>
         <url>${scm.url}/tree/master</url>
-        <tag>v3</tag>
+        <tag>v5</tag>
     </scm>
     <developers>
         <developer>
@@ -47,35 +47,44 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <!-- -->
+        <!-- SCM -->
+        <!-- -->
         <scm.provider>git</scm.provider>
         <scm.url>git@github.com:turbospaces/turbospaces-parent.git</scm.url>
         <scm.connection>scm:${scm.provider}:${scm.url}</scm.connection>
         <!-- -->
+        <!-- JDK requirements -->
+        <!-- -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <!-- -->
+        <!-- generic maven properties -->
+        <!-- -->
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <!-- -->
-        <!-- versions -->
+        <!-- maven plugin versions -->
         <!-- -->
-        <version.compiler.plugin>3.8.1</version.compiler.plugin>
-        <version.jar.plugin>3.2.0</version.jar.plugin>
-        <version.clean.plugin>3.1.0</version.clean.plugin>
-        <version.site.plugin>3.9.1</version.site.plugin>
-        <version.install.plugin>3.0.0-M1</version.install.plugin>
-        <version.deploy.plugin>3.0.0-M1</version.deploy.plugin>
-        <version.release.plugin>3.0.0-M1</version.release.plugin>
-        <version.buildhelper.plugin>3.2.0</version.buildhelper.plugin>
-        <version.buildnumber.plugin>1.4</version.buildnumber.plugin>
+        <version.compiler.plugin>3.10.1</version.compiler.plugin>
+        <version.enforcer.plugin>3.1.0</version.enforcer.plugin>
         <version.source.plugin>3.2.1</version.source.plugin>
+        <version.clean.plugin>3.2.0</version.clean.plugin>
+        <version.resources.plugin>3.3.0</version.resources.plugin>
+        <version.surefire.plugin>3.0.0-M7</version.surefire.plugin>
+        <version.jar.plugin>3.3.0</version.jar.plugin>
         <version.dependency.plugin>3.1.2</version.dependency.plugin>
-        <version.versions.plugin>2.8.1</version.versions.plugin>
-        <version.javadoc.plugin>3.3.1</version.javadoc.plugin>
-        <version.surefire.plugin>3.0.0-M5</version.surefire.plugin>
-        <version.resources.plugin>3.2.0</version.resources.plugin>
+        <version.versions.plugin>2.13.0</version.versions.plugin>
+        <version.install.plugin>3.0.1</version.install.plugin>
+        <version.javadoc.plugin>3.4.1</version.javadoc.plugin>
+        <version.release.plugin>3.0.0-M6</version.release.plugin>
+        <version.deploy.plugin>3.0.0</version.deploy.plugin>
+        <version.site.plugin>3.12.1</version.site.plugin>
         <version.gpg.plugin>3.0.1</version.gpg.plugin>
-        <version.enforcer.plugin>3.0.0</version.enforcer.plugin>
+        <!-- -->
+        <!-- maven plugin versions -->
+        <!-- -->
+        <version.buildhelper.plugin>3.3.0</version.buildhelper.plugin>
         <version.git-commit-id.plugin>4.9.10</version.git-commit-id.plugin>
+        <version.nexus-staging.plugin>1.6.13</version.nexus-staging.plugin>
     </properties>
     <profiles>
         <profile>
@@ -93,46 +102,6 @@
                         <artifactId>maven-gpg-plugin</artifactId>
                     </plugin>
                 </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>buildnumber-maven-plugin</artifactId>
-                            <configuration>
-                                <format>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-RELEASE</format>
-                                <items>
-                                    <item>timestamp</item>
-                                </items>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-        <profile>
-            <id>patch</id>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>buildnumber-maven-plugin</artifactId>
-                            <version>${version.buildnumber.plugin}</version>
-                            <configuration>
-                                <buildNumberPropertiesFileLocation>${basedir}/src/main/resources/buildNumber.properties</buildNumberPropertiesFileLocation>
-                                <format>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-patch-{0,number}</format>
-                                <items>
-                                    <item>buildNumber${parsedVersion.majorVersion}${parsedVersion.minorVersion}</item>
-                                </items>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
             </build>
         </profile>
     </profiles>
@@ -197,31 +166,6 @@
                     </executions>
                 </plugin>
                 <!-- -->
-                <!-- create version -->
-                <!-- -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>${version.buildnumber.plugin}</version>
-                    <executions>
-                        <execution>
-                            <id>create-build-number</id>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>create</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <doCheck>false</doCheck>
-                        <doUpdate>false</doUpdate>
-                        <format>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${parsedVersion.qualifier}</format>
-                        <items>
-                            <item>timestamp</item>
-                        </items>
-                    </configuration>
-                </plugin>
-                <!-- -->
                 <!-- add git properties -->
                 <!-- -->
                 <plugin>
@@ -240,7 +184,9 @@
                         <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     </configuration>
                 </plugin>
+                <!-- -->
                 <!-- attach source and test sources JARs -->
+                <!-- -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
@@ -260,7 +206,9 @@
                         </execution>
                     </executions>
                 </plugin>
+                <!-- -->
                 <!-- attach test JAR -->
+                <!-- -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -278,15 +226,12 @@
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
-                            <manifestEntries>
-                                <Implementation-Build>${buildNumber}</Implementation-Build>
-                                <Implementation-Version>${buildNumber}</Implementation-Version>
-                                <Specification-Version>${buildNumber}</Specification-Version>
-                            </manifestEntries>
                         </archive>
                     </configuration>
                 </plugin>
+                <!-- -->
                 <!-- analyze and remove unnecessary dependencies -->
+                <!-- -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -345,21 +290,20 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>${version.nexus-staging.plugin}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>sonatype-nexus-staging</serverId>
+                        <nexusUrl>https://oss.sonatype.org</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${version.enforcer.plugin}</version>
-                    <executions>
-                        <execution>
-                            <id>enforce-bytecode-version</id>
-                            <configuration>
-                                <rules>
-                                    <enforceBytecodeVersion>
-                                        <maxJdkVersion>${maven.compiler.source}</maxJdkVersion>
-                                    </enforceBytecodeVersion>
-                                </rules>
-                            </configuration>
-                        </execution>
-                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -398,5 +342,11 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 </project>
