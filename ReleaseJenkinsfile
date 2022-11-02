@@ -1,0 +1,28 @@
+pipeline {
+  agent any
+
+  options {
+    disableConcurrentBuilds()
+    timeout(time: 1, unit: 'HOURS')
+  }
+  tools {
+    maven 'mvn3'
+  }
+
+  stages {
+    stage ('Release') {
+      steps {
+        sshagent (credentials: ['jenkins-ci']) {
+          sh "mvn -B release:clean"
+          sh "mvn -B release:prepare -Dresume=false"
+          sh "mvn -B release:perform -Prelease,release-sign-artifacts"
+        }
+      }
+      post {
+        always {
+          deleteDir()
+        }
+      }
+    }
+  }
+}
