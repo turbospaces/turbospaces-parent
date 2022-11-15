@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>8-SNAPSHOT</version>
+    <version>8</version>
     <packaging>pom</packaging>
     <name>super POM</name>
-    <description>super-POM for all open-source project developed under turbospaces account</description>
+    <description>super-POM for all projects developed under turbospaces umbrella</description>
     <url>https://github.com/turbospaces/turbospaces-parent</url>
     <licenses>
         <license>
@@ -29,7 +29,7 @@
         <connection>${scm.connection}</connection>
         <developerConnection>${scm.connection}</developerConnection>
         <url>${scm.url}/tree/master</url>
-        <tag>v5</tag>
+        <tag>v8</tag>
     </scm>
     <developers>
         <developer>
@@ -58,10 +58,6 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <!-- -->
-        <!-- generic maven properties -->
-        <!-- -->
-        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
-        <!-- -->
         <!-- maven plugin versions -->
         <!-- -->
         <version.compiler.plugin>3.10.1</version.compiler.plugin>
@@ -80,7 +76,7 @@
         <version.site.plugin>3.12.1</version.site.plugin>
         <version.gpg.plugin>3.0.1</version.gpg.plugin>
         <!-- -->
-        <!-- maven plugin versions -->
+        <!-- 3-party maven plugin versions -->
         <!-- -->
         <version.buildhelper.plugin>3.3.0</version.buildhelper.plugin>
         <version.git-commit-id.plugin>4.9.10</version.git-commit-id.plugin>
@@ -136,18 +132,9 @@
                             <goals>
                                 <goal>sign</goal>
                             </goals>
-                            <configuration>
-                                <gpgArguments>
-                                    <arg>--pinentry-mode</arg>
-                                    <arg>loopback</arg>
-                                </gpgArguments>
-                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
-                <!-- -->
-                <!-- attach common generated folders -->
-                <!-- -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
@@ -175,9 +162,6 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!-- -->
-                <!-- add git properties -->
-                <!-- -->
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
@@ -194,9 +178,6 @@
                         <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     </configuration>
                 </plugin>
-                <!-- -->
-                <!-- attach source and test sources JARs -->
-                <!-- -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
@@ -216,9 +197,6 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!-- -->
-                <!-- attach test JAR -->
-                <!-- -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -239,9 +217,6 @@
                         </archive>
                     </configuration>
                 </plugin>
-                <!-- -->
-                <!-- analyze and remove unnecessary dependencies -->
-                <!-- -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -271,6 +246,8 @@
                     <version>${version.javadoc.plugin}</version>
                     <configuration>
                         <source>8</source>
+                        <failOnWarnings>false</failOnWarnings>
+                        <failOnError>false</failOnError>
                     </configuration>
                     <executions>
                         <execution>
