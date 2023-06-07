@@ -18,7 +18,7 @@ Super parent pom with a meaningful set of pre-configured plugins:
  <parent>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>9</version>
+    <version>10</version>
 </parent>
  ```
  
