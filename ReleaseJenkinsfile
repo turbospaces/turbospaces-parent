@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'gcp'
+    }
+  }
 
   options {
     disableConcurrentBuilds()
@@ -10,9 +14,9 @@ pipeline {
   }
 
   stages {
-    stage ('Release') {
+    stage('Release') {
       steps {
-        sshagent (credentials: ['jenkins-ci']) {
+        sshagent(credentials: ['jenkins-ci']) {
           sh "mvn -B release:clean"
           sh "mvn -B release:prepare -Dresume=false"
           sh "mvn -B release:perform -Prelease-sign-artifacts"
