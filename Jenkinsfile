@@ -1,9 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'gcp'
-    }
-  }
+  agent any
   triggers {
     pollSCM('* * * * *')
   }
