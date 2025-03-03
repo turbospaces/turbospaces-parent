@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'gcp'
-    }
-  }
-
+  agent any
   options {
     disableConcurrentBuilds()
     timeout(time: 1, unit: 'HOURS')
