@@ -1,14 +1,15 @@
 pipeline {
-  agent any
-  triggers {
-    pollSCM('* * * * *')
+  agent {
+    node { label 'patrianna-dev' }
   }
+  triggers { pollSCM('H/2 * * * *') }
   options {
     disableConcurrentBuilds()
     timeout(time: 1, unit: 'HOURS')
   }
   tools {
     maven 'mvn3'
+    jdk 'jdk21'
   }
   stages {
     stage('Build') {
