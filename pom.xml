@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.turbospaces</groupId>
     <artifactId>turbospaces-parent-pom</artifactId>
-    <version>12</version>
+    <version>12-SHAPSHOT</version>
     <packaging>pom</packaging>
     <name>super POM</name>
     <description>super-POM for all projects developed under turbospaces umbrella</description>
