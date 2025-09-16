@@ -19,7 +19,7 @@ pipeline {
         }
       }
       steps {
-        sh 'mvn -s settings.xml clean deploy -U'
+        sh 'mvn clean deploy'
         sh 'mvn org.codehaus.mojo:build-helper-maven-plugin:remove-project-artifact -Dbuildhelper.removeAll=true'
       }
     }

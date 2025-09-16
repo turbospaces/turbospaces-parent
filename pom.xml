@@ -8,12 +8,6 @@
     <name>super POM</name>
     <description>super-POM for all projects developed under turbospaces umbrella</description>
     <url>https://github.com/turbospaces/turbospaces-parent</url>
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
     <distributionManagement>
         <snapshotRepository>
             <id>artifact-registry</id>
@@ -26,14 +20,24 @@
     </distributionManagement>
     <repositories>
         <repository>
-            <id>artifact-registry-mirror</id>
-            <url>artifactregistry://europe-west1-maven.pkg.dev/patrianna-prod/maven-mirror</url>
+            <id>artifact-registry</id>
+            <url>artifactregistry://europe-maven.pkg.dev/patrianna-dev/nexus</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+        </repository>
+        <repository>
+           <id>artifact-registry-mirror</id>
+           <url>artifactregistry://europe-west1-maven.pkg.dev/patrianna-prod/maven-mirror</url>
+           <releases>
+               <enabled>true</enabled>
+           </releases>
+           <snapshots>
+               <enabled>true</enabled>
+           </snapshots>
         </repository>
     </repositories>
     <scm>
